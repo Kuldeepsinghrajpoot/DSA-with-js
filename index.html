@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function add(a, b) {
+            document.getElementById('result').innerHTML = a + b;
+        }
+    </script>
+    <div id="result"></div>
+
+    <form action="" method="dialog">
+        <input type="text" name="num1" id="num1">
+        <input type="text" name="num2" id="num2">
+        <button type="button"
+            onclick="add(parseInt(document.getElementById('num1').value), parseInt(document.getElementById('num2').value))">Add</button>
+    </form>
+
+</body>
+
+</html>

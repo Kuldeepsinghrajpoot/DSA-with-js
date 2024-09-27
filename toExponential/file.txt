@@ -1,0 +1,9 @@
+the toExponential() method return a sring, with the number rounded and written using Exponential notation.
+ 
+ syntex
+ <script>
+ datatype variable;
+ method to print()
+
+  variable.toExponential();
+  </script>

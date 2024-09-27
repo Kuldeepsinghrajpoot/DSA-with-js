@@ -1,0 +1,1 @@
+console.log(obj.Multiplay_two_values())
