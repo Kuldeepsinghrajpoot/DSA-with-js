@@ -2,8 +2,9 @@
 
 function basic(n) {
     if(n===0){
-        return 1;
+        return 0;
     }
+    console.log(n)
     return n*basic(n-1);
     
 }

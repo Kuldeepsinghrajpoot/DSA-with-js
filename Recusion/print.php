@@ -1,7 +1,0 @@
-<?
-
-function hello(){
-    printf("hello")
-}
-
-?>
