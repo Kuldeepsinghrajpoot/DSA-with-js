@@ -1,3 +1,4 @@
+
 //  Single linked list
 // this way is contructor and prototype 
 let Node = function(data){
