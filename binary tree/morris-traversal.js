@@ -18,6 +18,7 @@ class MorrisTraversal {
                 current = current.right; // move to right child
             } else { 
                 // Case 2: Find the inorder predecessor of the current node
+            //   predecessor is a way to  created a tempory link for the visiting the left and right subtrees
                 let predecessor = current.left;
                 while (predecessor.right !== null && predecessor.right !== current) {
                     predecessor = predecessor.right;
