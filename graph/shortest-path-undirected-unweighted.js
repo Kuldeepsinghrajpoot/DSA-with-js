@@ -50,7 +50,7 @@ class Graph {
         // now performing the sortest path using the parent tracker;
         const ans = []
         let currentNode = endNode;
-        
+
         while (currentNode !== -1) {
             ans.push(currentNode);
             currentNode = this.parentTrack.get(currentNode);
@@ -65,6 +65,7 @@ class Graph {
 // calling the Graph
 
 const g = new Graph();
-[[1, 2], [1, 3], [1, 4], [2, 5], [3, 8], [4, 6], [5, 8], [6, 7], [7, 8]].forEach((e) => g.adj(e))
+[[0, 1], [0, 3], [1, 2], [3, 7], [7, 4], [4, 6], [4, 5], [5, 6], [7, 6]].forEach((e) => g.adj(e))
 
-g.shortestPath(1, 8)
+g.shortestPath(0, 7)
+console.log(g.matrix)

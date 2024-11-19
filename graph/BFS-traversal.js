@@ -8,12 +8,12 @@ function bfsTraversal(startNode, adj) {
     visited.set(startNode, true);
 
     while (queue.length > 0) {
-        let currentNode = queue.shift(); // Dequeue the front node
-        ans.push(currentNode); // Add the current node to the answer
+        let front = queue.shift(); // Dequeue the front node
+        ans.push(front); // Add the current node to the answer
 
-        // Check if adj[currentNode] is an array before iterating
-        if (Array.isArray(adj[currentNode])) {
-            for (let neighbor of adj[currentNode]) {
+        // Check if adj[front] is an array before iterating
+        if (Array.isArray(adj[front])) {
+            for (let neighbor of adj[front]) {
                 if (!visited.get(neighbor)) { // If the neighbor hasn't been visited
                     queue.push(neighbor); // Enqueue the neighbor
                     visited.set(neighbor, true); // Mark the neighbor as visited
