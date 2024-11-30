@@ -80,6 +80,6 @@ graph.prims(0);
 
 // Get the result
 const result = graph.result();
-// console.log(result);
+console.log(result);
 console.log(graph.cost());
 

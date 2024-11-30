@@ -22,7 +22,7 @@ class Graph {
         }
     }
     // Method to perform DFS traversal and find the connected component
-    DFS(node, component) {
+    DFS(node, component) {  
         if (this.visited.get(node)) {
             return;
         }

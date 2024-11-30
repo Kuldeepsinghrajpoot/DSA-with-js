@@ -1,43 +1,44 @@
 class Solution {
     // Function to detect cycle in a directed graph.
     isCyclic(V, adj) {
-        // Arrays to track visited nodes and recursion stack
-        let visited = new Map(Array.from({ length: V }, (_, idx) => [idx, false]));
-        let dfsVisited = new Map(Array.from({ length: V }, (_, idx) => [idx, false]));
+        let visited = new Array(V).fill(false);
+        let parent = new Array(V).fill(false);
 
-        // Helper function for DFS
-        function helper(startNode) {
-            // Mark the current node as visited and part of the recursion stack
-            visited.set(startNode, true);
-            dfsVisited.set(startNode, true);
+        const helper = (node) => {
+            visited[node] = true;
+            parent[node] = true;
 
-            // Traverse all the neighbors of the current node
-            for (let neighbor of adj[startNode]) {
-                if (!visited.get(neighbor)) {
-                    // If the neighbor hasn't been visited, recurse on it
-                    if (helper(neighbor)) {
-                        return true; // Cycle detected
-                    }
-                } else if (dfsVisited.get(neighbor)) {
-                    // If the neighbor is part of the current recursion stack, a cycle is detected
+            for (const nbr of adj[node]) {
+                // If neighbor is not visited, recursively visit
+                if (!visited[nbr]) {
+                    if (helper(nbr)) return true;
+                }
+                // If neighbor is in the current recursion stack, it's a cycle
+                else if (parent[nbr]) {
                     return true;
                 }
             }
 
-            // Remove the current node from the recursion stack
-            dfsVisited.set(startNode, false);
+            parent[node] = false; // Remove node from recursion stack
             return false;
-        }
+        };
 
-        // Check for cycles in each component of the graph
         for (let i = 0; i < V; i++) {
-            if (!visited.get(i)) {
-                if (helper(i)) {
-                    return true; // Cycle detected
-                }
+            if (!visited[i]) {
+                if (helper(i)) return true;
             }
         }
 
-        return false; // No cycle detected
+        return false;
     }
 }
+
+const graph = new Solution();
+const V = 4;
+const adj = [
+    [1],      // Node 0 -> Node 1
+    [2],      // Node 1 -> Node 2
+    [0],      // Node 2 -> Node 0 (Cycle)
+    [2]       // Node 3 -> Node 2
+];
+console.log(graph.isCyclic(V, adj)); // Output: true
