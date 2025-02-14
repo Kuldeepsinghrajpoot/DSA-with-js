@@ -100,6 +100,7 @@ class MinHeap {
     }
   }
   
+  
   // Example Usage
   const solution = new Solution();
   const arr = [1, 2, 3, 4];
